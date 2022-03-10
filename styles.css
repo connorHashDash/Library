@@ -87,9 +87,9 @@ div.formHead{
 }
 
 #main{
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
 }
 
 .bookDiv{
