@@ -67,7 +67,7 @@ function Book(title, author, pages){
   this.title = title,
   this.author = author,
   this.pages = pages,
-  this.read = false,
+  this.read = 'no',
   this.readChange = function(){
     if (this.read == false){
       this.read.innerHTML = '';
@@ -82,27 +82,32 @@ function Book(title, author, pages){
 }
 
 function bookDisplay() {
-  for(i = 0; i < myLibrary.length; i++){
+let i = 0;
     let bookDiv = document.createElement('div') 
     bookDiv.className = `bookDiv`
     mainDiv.appendChild(bookDiv)
+
     let currentBook = myLibrary[i]
     let title = document.createElement('p')
     title.className = `title`
     title.innerHTML = `Title: ${currentBook.title}`
     bookDiv.appendChild(title)
+
     let author = document.createElement('p')
     author.className = `author`
     author.innerHTML = `Author: ${currentBook.author}`
     bookDiv.appendChild(author)
+
     let pages = document.createElement('p')
     pages.className = `pages`
     pages.innerHTML = `Pages: ${currentBook.pages}`
     bookDiv.appendChild(pages)
+
     let read = document.createElement('p')
     read.className = `read`
     read.innerHTML = `Read: ${currentBook.read}`
     bookDiv.appendChild(read)
+
     let removeButton = document.createElement('button')
     removeButton.innerHTML = `Remove`
     removeButton.className = `RemoveButton`
@@ -110,21 +115,22 @@ function bookDisplay() {
     removeButton.addEventListener('click', function(){
       this.parentElement.remove()
     });
+
     let readButton = document.createElement('Button')
     readButton.innerHTML = `Read`
     readButton.className = `readButton`
     bookDiv.appendChild(readButton)
     readButton.addEventListener('click', function(){
+
     let readStatus = false
-      if (read.innerHTML == 'Read: false'){
+      if (read.innerHTML == 'Read: no'){
         read.innerHTML = '';
         read.innerHTML = 'Read: yes';
         readStatus = true
       } else {
         read.innerHTML = '';
-        read.innerHTML = 'Read: false';
+        read.innerHTML = 'Read: no';
         readStatus = false
       }
     });
   }
-}
