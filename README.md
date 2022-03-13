@@ -13,4 +13,7 @@ The new object is then used and put into the applicable fields in the "cards".
 The "toggling" of whether or not the book has been read is a function which is created outside of
 the object constructor and instead is written when the button is created.
 
+## Visual Style
 
+The projects looks sparse and could do with some visual tweaks down the line. I wanted to focus on
+just javascript for this project and learn about a concept so I kept the styling to a minimum. 
