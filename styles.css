@@ -48,6 +48,13 @@ div.formHead{
   border-bottom: solid 1px black;
 }
 
+.switch{
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
 .addButtonDiv{
   display: flex;
   justify-content: center;

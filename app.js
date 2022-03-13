@@ -25,7 +25,9 @@ form.addEventListener('submit', (e) => {
     let inputTitle = document.getElementsByName('title')[0].value
     let inputAuthor = document.getElementsByName('author')[0].value
     let inputPage = document.getElementsByName('pages')[0].value
-    myLibrary[j] = new Book(inputTitle, inputAuthor, inputPage)
+    let inputReadToggle = document.getElementById('readToggle').checked
+    log(inputReadToggle)
+    myLibrary[j] = new Book(inputTitle, inputAuthor, inputPage, inputReadToggle)
     form.reset();
     j++;
     x++;
@@ -66,11 +68,11 @@ function closeModal(modal) {
     overlay.classList.remove('active')
 }
 
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
     this.title = title,
         this.author = author,
         this.pages = pages,
-        this.read = 'no',
+        this.read = read,
         this.readChange = function() {
             if (this.read == false) {
                 this.read.innerHTML = '';
@@ -107,9 +109,16 @@ function bookDisplay() {
     bookDiv.appendChild(pages)
 
     let read = document.createElement('p')
-    read.className = `read`
-    read.innerHTML = `Read: ${currentBook.read}`
-    bookDiv.appendChild(read)
+    if (currentBook.read == true){
+        read.className = `read`
+        read.innerHTML = `Read: yes`
+        bookDiv.appendChild(read)
+    } else{
+        read.className = `read`
+        read.innerHTML = `Read: no`
+        bookDiv.appendChild(read)
+    }
+    
 
     let removeButton = document.createElement('button')
     removeButton.innerHTML = `Remove`
