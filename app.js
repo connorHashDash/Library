@@ -16,7 +16,6 @@ const form = document.getElementById('form')
 const formSubmit = document.getElementById('formSubmit')
 
 //Data from form
-
 let myLibrary = [];
 
 let x = 0;
@@ -128,7 +127,6 @@ function bookDisplay() {
         this.parentElement.remove()
     });
     i++
-  log(`i= ${i}`)
     let readButton = document.createElement('Button')
     readButton.innerHTML = `Read`
     readButton.className = `readButton`
